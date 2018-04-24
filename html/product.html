@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Webshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="img/logo.svg" alt="Webshop logo">
+            </div>
+            <div class="cart-info">
+                <p>Your Cart:
+                    <span class="items-in-cart">3</span>
+                    <span class="cost-in-cart">$221.00</span>
+                </p>
+            </div>
+            <div class="user-profile">
+                <p class="user-name">Kyle</p>
+                <p class="user-login">logout</p>
+            </div>
+        </header>
+        <main>
+            <section class="sidebar-left">
+                <ul class="product-categories-list">
+                    <li class="product-category">
+                        <a href="#">Sticks</a>
+                    </li>
+                    <li class="product-category">
+                        <a href="#">Rocks</a>
+                    </li>
+                    <li class="product-category">
+                        <a href="#">Fire</a>
+                    </li>
+                </ul>
+            </section>
+            <div class="main-content">
+            <div class="breadcrumbs">
+                <p>
+                    <span class="category">Rocks</span>
+                    <span class="item">Small Purple Stone</span>
+                </p>
+            </div>
+            <section class="product-display">
+                <div class="product-image"> PRODUCT IMAGE </div>
+                <div class="product-meta">
+                    <form class="cart" action="https://www.wheeldesks.com/product/notebook/" method="post" enctype="multipart/form-data">
+                        <div class="quantity">
+                            <input type="number" id="quantity" class="input-qty" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4"
+                                pattern="[0-9]*" inputmode="numeric">
+                        </div>
+                        <button type="submit" name="add-to-cart" class="add-to-cart">Add to cart</button>
+                    </form>
+                </div>
+                <div class="product-info">
+                    <h1 class="product-title">Small Purple Stone</h1>
+                    <h3>Description:</h3>
+                    <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel mollitia soluta inventore suscipit velit totam, dolorum minus illum ipsa corrupti! Optio ratione praesentium quo odio inventore dignissimos eligendi repellendus fugiat.</p>
+                </div>
+            </section>
+        </div>
+        </main>
+
+    </div>
+
+
+
+
+</body>
+
+</html>
