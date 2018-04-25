@@ -1,0 +1,178 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.container {
+  width: 96%;
+  height: 100%;
+  margin: 1% auto;
+  border: 1px #eef solid;
+  padding: 0;
+}
+
+header {
+  height: 80px;
+  width: 100%;
+  background: #f3f6f9;
+  border: 2px #d3d6d9 solid;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo {
+  height: calc(80px - 2rem);
+  width: 7vw;
+  background: #d6dcd0;
+  padding: 1rem;
+  flex: 1;
+}
+
+.cart-info {
+  height: calc(80px - 2rem);
+  width: 11vw;
+  background: #cdd;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.items-in-cart {
+  height: 100%;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.cost-in-cart {
+  height: 100%;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.user-profile {
+  height: calc(80px - 2rem);
+  width: 11vw;
+  background: #cdd;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: sans-serif;
+  flex: 1;
+}
+
+.user-name {
+  font-size: .8em;
+  font-weight: bold;
+}
+
+.user-login {
+  height: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  background: #f3f3fc;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.sidebar-left {
+  height: 100%;
+  width: 320px;
+  background: #ddd;
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.main-content {
+  width: 100%;
+  border: 1px solid #ccc;
+  display: flex;
+  border: 1px #cdc solid;
+  flex-direction: column;
+}
+
+.welcome {
+  width: 100%;
+  text-align: center;
+}
+
+.product-categories-list {
+  height: 100%;
+}
+
+.product-category {
+  height: 100%;
+}
+
+.breadcrumbs {
+  height: 60px;
+  border: 2px #cac solid;
+}
+
+.breadcrumbs.category {
+  height: 100%;
+}
+
+.breadcrumbs.item {
+  height: 100%;
+}
+
+.product-display {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-image {
+  height: 100px;
+  width: 200px;
+  background: #9991a4;
+}
+
+.product-meta {
+  height: 100%;
+}
+
+form.cart {
+  height: 100%;
+}
+
+form.cart .input-qty {
+  height: 100%;
+}
+
+.add-to-cart {
+  height: 18px;
+}
+
+.product-info {
+  height: 100%;
+}
+
+.product-title {
+  height: 100%;
+}
+
+.product-info h3 {
+  height: 100%;
+}
+
+.product-description {
+  height: 100%;
+}
