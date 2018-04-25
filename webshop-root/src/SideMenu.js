@@ -6,8 +6,8 @@ import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 let mapStateToProps = (state) => { 
-    return { categories: state.categories,
-                items: state.items };
+    return { categories: state.products.categories,
+                items: state.products.items };
 };
 
 let ConnectedSideMenu = (props) => {

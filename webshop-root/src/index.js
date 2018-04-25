@@ -4,39 +4,35 @@ import './index.css';
 import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-
-
-const initialState = {
-    activeCategoryId: 1,
-    activeItem: null, 
-    categories: [
-        { name: 'Technology', id:1 },
-        { name: 'Coffee', id:2 },
-        { name: 'Educational', id:3 },
-        { name: 'Board Games', id:4 },
-    ],
-    items: [
-        { name: 'Coffee Maker', categoryId: 2, price: 19.99 },
-        { name: 'Filters', categoryId: 2, price: 1.59 },
-        { name: 'Creamer', categoryId: 2, price: 3.19 },
-        { name: 'Redux Help', categoryId: 3, price: 9.99 },
-        { name: 'Super Amazing Computer', categoryId: 1, price: 10000 },
-        { name: 'Werewolf', categoryId: 4, price: 14.99 }
-    ],
-    users: [
-        { firstname: 'Seth', lastname: 'Zim' },
-        { firstname: 'Jonathan', lastname: 'Martin' },
-        { firstname: 'Joshua', lastname: 'Martin' }
-    ]
-};
-
-let rootReducer = (state = initialState, action) => {
-    return state;
-};
+import rootReducer from './reducers/reducers';
+import {addToCart} from './actions/actions';
+import {updateCart} from './actions/actions';
+import {deleteFromCart} from './actions/actions';
 
 const store = createStore(rootReducer);
 
-// window.store = store;
+console.log("initial state: ", store.getState());
+
+let unsubscribe = store.subscribe(() =>
+  console.log(store.getState())
+);
+
+store.dispatch(addToCart('Coffee 500gm', 1, 250));
+store.dispatch(addToCart('Flour 1kg', 2, 110));
+store.dispatch(addToCart('Juice 2L', 1, 250));
+
+// Update Cart
+store.dispatch(updateCart('Flour 1kg', 5, 110));
+
+// Delete from Cart
+store.dispatch(deleteFromCart('Flour 1kg'));
+store.dispatch(deleteFromCart('Juice 2L'));
+
+unsubscribe();
+
+
+
+
 
 
 ReactDOM.render(<Provider store={store}>
