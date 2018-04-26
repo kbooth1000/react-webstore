@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {NavLink, Route } from 'react-router-dom';
+import {NavLink } from 'react-router-dom';
 
 class Homepage extends Component {
   render() {

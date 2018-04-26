@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
-import {ADD_TO_CART} from '../actions/action-types';
-import {UPDATE_CART} from  '../actions/action-types';
-import {DELETE_FROM_CART} from  '../actions/action-types';
+import { ADD_TO_CART } from '../actions/action-types';
+import { UPDATE_CART } from '../actions/action-types';
+import { DELETE_FROM_CART } from '../actions/action-types';
+import { ACTIVATE_CATEGORY } from '../actions/action-types';
+import { ACTIVATE_PRODUCT } from '../actions/action-types';
 
 const initialProductsState = {
     activeCategoryId: 1,
-    activeItem: null,
+    activeProduct: [{ name: 'Coffee Maker', categoryId: 2, price: 19.99 }],
     categories: [
         { name: 'Technology', id: 1 },
         { name: 'Coffee', id: 2 },
@@ -27,7 +29,7 @@ const initialProductsState = {
     ]
 };
 
-const initialCartState ={
+const initialCartState = {
     cart: [
         {
             product: 'Coffee Maker',
@@ -43,41 +45,56 @@ const initialCartState ={
 };
 
 const productsReducer = function (state = initialProductsState, action) {
-    return state;
-}
-
-let cartReducer =  function(state=initialCartState, action) {
     switch (action.type) {
-      case ADD_TO_CART: {
-        return {
-          ...state,
-          cart: [...state.cart, action.payload]
+        case ACTIVATE_CATEGORY: {
+            return {
+                ...state,
+                activeCategoryId: action.payload.categoryid
+            }
         }
-      }
-  
-      case UPDATE_CART: {
-        return {
-          ...state,
-          cart: state.cart.map(item => item.product === action.payload.product ? action.payload : item)
+        case ACTIVATE_PRODUCT: {
+            return {
+                ...state,
+                activeProduct: [action.payload.product]
+            }
         }
-      }
-  
-      case DELETE_FROM_CART: {
-        return {
-          ...state,
-          cart: state.cart.filter(item => item.product !== action.payload.product)        }
-      }
-  
-      default:
+        default:
         return state;
     }
-  };
+};
 
-const allReducers = {
-    products: productsReducer,
-    shoppingCart: cartReducer
-}
+    let cartReducer = function (state = initialCartState, action) {
+        switch (action.type) {
+            case ADD_TO_CART: {
+                return {
+                    ...state,
+                    cart: [...state.cart, action.payload]
+                }
+            }
 
-let rootReducer = combineReducers(allReducers);
+            case UPDATE_CART: {
+                return {
+                    ...state,
+                    cart: state.cart.map(item => item.product === action.payload.product ? action.payload : item)
+                }
+            }
 
-export default rootReducer;
+            case DELETE_FROM_CART: {
+                return {
+                    ...state,
+                    cart: state.cart.filter(item => item.product !== action.payload.product)
+                }
+            }
+            default:
+            return state;
+        }
+    };
+
+    const allReducers = {
+        products: productsReducer,
+        shoppingCart: cartReducer
+    }
+
+    let rootReducer = combineReducers(allReducers);
+
+    export default rootReducer;

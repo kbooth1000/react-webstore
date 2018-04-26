@@ -1,33 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SideMenu from './SideMenu';
+import Breadcrumbs from './Breadcrumbs';
 import {connect} from 'react-redux';
+import {activateCategory, activateProduct} from './actions/actions';
 
-let mapStateToProps = (state) => { 
-    return { categories: state.categories };
-};
-
-// let mapDispatchToProps = (dispatch) => { 
-// return { dispatch: dispatch };
-// };
 
 let ConnectedProduct = (props) => {
       
  return <main>
   <SideMenu />
   <div className="main-content">
-  <div className="breadcrumbs">
-      <p>
-          <span className="category">Rocks</span>
-          <span className="item">Small Purple Stone</span>
-      </p>
-  </div>
+    <Breadcrumbs />
   <section className="product-display">
       <div className="product-image"> PRODUCT IMAGE </div>
       <div className="product-meta">
-          <form className="cart" action="https://www.wheeldesks.com/product/notebook/" method="post" enctype="multipart/form-data">
+          <form className="cart" action="https://www.wheeldesks.com/product/notebook/" method="post">
               <div className="quantity">
-                  <input type="number" id="quantity" className="input-qty" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4"
-                      pattern="[0-9]*" inputmode="numeric" />
+                  <input type="number" id="quantity" className="input-qty" step="1" min="1" name="quantity" defaultValue="1" title="Qty" size="4"
+                      pattern="[0-9]*" inputMode="numeric" />
               </div>
               <button type="submit" name="add-to-cart" className="add-to-cart">Add to cart</button>
           </form>
@@ -40,6 +30,19 @@ let ConnectedProduct = (props) => {
   </section>
 </div>
 </main>;
+};
+
+let mapStateToProps = (state) => { 
+    return { categories: state.products.categories,
+                items: state.products.items,
+                activeCategory: state.products.activeCategory };
+};
+
+let mapDispatchToProps = () => {
+    return({
+        activateCategory: activateCategory,
+        activateProduct: activateProduct
+    });
 };
 
 let Product = connect(mapStateToProps)(ConnectedProduct);

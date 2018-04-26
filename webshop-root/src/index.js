@@ -2,14 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './reducers/reducers';
 import {addToCart} from './actions/actions';
 import {updateCart} from './actions/actions';
 import {deleteFromCart} from './actions/actions';
-
-const store = createStore(rootReducer);
+import store from './store';
 
 console.log("initial state: ", store.getState());
 
