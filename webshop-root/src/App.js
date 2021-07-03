@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
 import Homepage from './Homepage';
@@ -8,9 +7,7 @@ import Product from './Product';
 import {
     HashRouter as Router,
     Route,
-    NavLink
   } from 'react-router-dom'
-import Switch from 'react-router-dom/Switch';
 
 class App extends Component {
     render() {

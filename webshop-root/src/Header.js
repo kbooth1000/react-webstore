@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {NavLink, Route } from 'react-router-dom';
+import React from 'react';
+import {NavLink } from 'react-router-dom';
 
 let Header = () => <header>
 <div className="logo">
